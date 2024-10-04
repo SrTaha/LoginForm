@@ -7,6 +7,7 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="src/output.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
                 <div> <input type="checkbox" name="RememberPass" id="RememberPass" class="cursor-pointer">&nbsp;
                     <label for="RememberPass" class="cursor-pointer">Remember Me</label>
                 </div>
-                <div><button>Forgot Password?</button></div>
+                <div><button id="forgotpassBtn">Forgot Password?</button></div>
             </div>
             <button type="submit" id="submitbtn"
                 class="bg-white w-full mx-auto mt-5 mb-2 py-2 rounded-md">Login</button>
@@ -47,8 +48,10 @@
 
 
     <!-- Js Files Linked -->
-    <link rel="stylesheet" href="js/Login.js">
-    <link rel="stylesheet" href="js/Signin.js">
+    <script src="js/Assets.js"></script>
+    <script src="js/Login.js"></script>
+    <script src="js/Signin.js"></script>
+
 </body>
 
 </html>
