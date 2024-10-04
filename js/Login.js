@@ -4,11 +4,6 @@ let RememberPass = document.getElementById(`RememberPass`);
 let submitbtn = document.getElementById(`submitbtn`);
 let forgotpassBtn = document.getElementById(`forgotpassBtn`);
 
-function EmailValication() {
-  const validator = require("validator");
-  const email = "hello@gmail,com";
-  const isValid = validator.isEmail(email);
-  console.log(isValid);
-}
+function EmailValication() {}
 
 submitbtn.addEventListener("click", EmailValication, true);
