@@ -6,24 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <div class="w-3/12 mx-auto my-40 py-3 flex flex-col bg-gray-300 rounded-md">
-        <p class="mx-auto">Login To Website</p>
+    <div
+        class="w-1/5 mx-auto my-40 py-3 flex flex-col bg-slate-200 bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-md">
+        <p class="mx-auto my-2 font-black text-2xl text-white">Login</p>
         <div class="w-10/12 mx-auto flex flex-col">
-            <div class="flex flex-col" id="UserNameContainer">
-                <label for="UserName/Email" class="my-1">UserName or Emil</label>
-                <input type="text" name="UserName/Email" id="UserName/Email" class="h-8 rounded-sm px-2"
-                    placeholder="UserName or Email">
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="email" name="floating_email" id="floating_email"
+                    class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder="" required />
+                <label for="floating_email"
+                    class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
+                    address</label>
             </div>
-            <div class="flex flex-col my-4" id="PassWordContainer">
-                <label for="PassWord" class="my-1">PassWord</label>
-                <input type="text" name="PassWord" id="PassWord" class="h-8 rounded-sm px-2" placeholder="PassWord">
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="password" name="floating_password" id="floating_password"
+                    class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required />
+                <label for="floating_password"
+                    class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+            </div>
+            <div class="flex flex-row justify-between items-center my-2">
+                <div> <input type="checkbox" name="RememberPass" id="RememberPass" class="cursor-pointer">&nbsp;
+                    <label for="RememberPass" class="cursor-pointer">Remember Me</label>
+                </div>
+                <div><button>Forgot Password?</button></div>
             </div>
             <button type="submit" id="submitbtn"
-                class="bg-gray-600 w-6/12 mx-auto mt-5 mb-2 py-2 rounded-md">Login</button>
-            <button class="underline text-blue-700">SignIn</button>
+                class="bg-white w-full mx-auto mt-5 mb-2 py-2 rounded-md">Login</button>
+            <p class="mx-auto">Don't have an Account? <button id="registerBtn">Register</button></p>
+
 
 
 
