@@ -5,14 +5,19 @@ let submitbtn = document.getElementById(`submitbtn`);
 let forgotpassBtn = document.getElementById(`forgotpassBtn`);
 
 function GetData(e) {
-  fetch("../db.json")
+  fetch("http://localhost:3004/Accounts")
     .then((res) => {
-      res.json;
+      res.json();
     })
     .then((data) => {
+      console.log(typeof data);
+
       data.forEach((elem) => {
-        if (elem.UserName == e) {
-          return true;
+        if (elem.UserName != e) {
+          floating_username.insertAdjacentHTML(
+            "afterend",
+            `<p class="text-white">Invalid UserName</p>`
+          );
         }
       });
     });
@@ -24,11 +29,8 @@ function UsernameLength() {
       "afterend",
       `<p class="text-white">UserName is too short !</p>`
     );
-  } else if (GetData(floating_username) != true) {
-    floating_username.insertAdjacentHTML(
-      "afterend",
-      `<p class="text-white">Invalid UserName</p>`
-    );
+  } else if (floating_username.value.length > 6) {
+    GetData(floating_username.value);
   }
 }
 
