@@ -12,7 +12,10 @@ function UsernameCheck(e) {
       let data = JSON.parse(xhr.responseText);
       data.forEach((elem) => {
         if (elem.UserName != e) {
-          if (document.getElementById("Invalid-UserName") == null) {
+          if (
+            document.getElementById("Invalid-UserName") == null &&
+            document.getElementById("ShortUserError") == null
+          ) {
             floating_username.insertAdjacentHTML(
               "afterend",
               `<p class="text-white" id="Invalid-UserName">Invalid UserName</p>`
@@ -30,13 +33,34 @@ function UsernameCheck(e) {
 }
 
 function Check() {
-  if (floating_username.value.length < 6) {
+  if (
+    floating_username.value.length < 6 &&
+    document.getElementById("ShortUserError") == null
+  ) {
     floating_username.insertAdjacentHTML(
       "afterend",
-      `<p class="text-white">UserName is too short !</p>`
+      `<p class="text-white" id="ShortUserError">UserName is too short !</p>`
     );
-  } else if (floating_username.value.length > 6) {
+  } else if (
+    floating_username.value.length > 6 &&
+    document.getElementById("ShortUserError") != null
+  ) {
+    document.getElementById("ShortUserError").remove();
     UsernameCheck(floating_username.value);
+  }
+  if (
+    floating_password.value.length == 0 &&
+    document.getElementById("require-pass") == null
+  ) {
+    floating_password.insertAdjacentHTML(
+      "afterend",
+      `<p class="text-white" id="require-pass">Require PassWord</p>`
+    );
+  } else if (
+    floating_password.value.length > 0 &&
+    document.getElementById("require-pass") != null
+  ) {
+    document.getElementById("require-pass").remove();
   }
 }
 
