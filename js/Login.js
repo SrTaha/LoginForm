@@ -20,14 +20,14 @@ function UsernameCheck(e) {
               "afterend",
               `<p class="text-white" id="Invalid-UserName">Invalid UserName</p>`
             );
+          } else if (
+            document.getElementById("Invalid-UserName") != null &&
+            document.getElementById("ShortUserError") == null
+          ) {
+            document.getElementById("ShortUserError").remove();
           }
         } else if (elem.UserName == e) {
           document.getElementById("Invalid-UserName").remove();
-        } else if (
-          document.getElementById("Invalid-UserName") == null &&
-          document.getElementById("ShortUserError") != null
-        ) {
-          document.getElementById("ShortUserError").remove();
         }
       });
     } else {
