@@ -23,6 +23,11 @@ function UsernameCheck(e) {
           }
         } else if (elem.UserName == e) {
           document.getElementById("Invalid-UserName").remove();
+        } else if (
+          document.getElementById("Invalid-UserName") == null &&
+          document.getElementById("ShortUserError") != null
+        ) {
+          document.getElementById("ShortUserError").remove();
         }
       });
     } else {
