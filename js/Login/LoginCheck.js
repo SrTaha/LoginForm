@@ -10,13 +10,17 @@ let PassWordError = document.getElementById(`PassWordError`);
 
 // For Checking Both inputs I Used Minimum Length Method
 
+let userStatus = false;
+let passwordStatus = false;
 // UserName Check
 
 function UserCheck() {
   if (floating_username.value.length == 0) {
     UserNameError.innerHTML = `Username Required`;
+    userStatus = false;
   } else if (floating_username.value.length <= 5) {
     UserNameError.innerHTML = `Username should be more than 5 characters`;
+    userStatus = false;
   } else {
     fetch("http://localhost:3004/Accounts")
       .then((response) => response.json())
@@ -24,6 +28,9 @@ function UserCheck() {
         data.forEach((elem) => {
           if (elem.Username != floating_username.value) {
             UserNameError.innerHTML = `Invalid Username`;
+            userStatus = false;
+          } else {
+            userStatus = true;
           }
         });
       });
@@ -33,10 +40,18 @@ function UserCheck() {
 function PassWordCheck() {
   if (floating_password.value.length == 0) {
     PassWordError.innerHTML = `Password Required`;
+    passwordStatus = false;
   } else {
     PassWordError.innerHTML = ``;
+    passwordStatus = true;
   }
 }
 
 submitBtn.addEventListener("click", UserCheck);
 submitBtn.addEventListener("click", PassWordCheck);
+submitBtn.addEventListener("click", () => {
+  if (userStatus == true && passwordStatus == true) {
+    console.log(true);
+    GetUser();
+  }
+});
