@@ -18,7 +18,7 @@ function UserCheck() {
       .then((response) => response.json())
       .then((data) => {
         data.forEach((elem) => {
-          if (elem.Usern1ame == floating_username.value) {
+          if (elem.Username == floating_username.value) {
             return true;
           }
         });
