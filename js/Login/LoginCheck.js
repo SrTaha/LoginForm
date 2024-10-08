@@ -13,31 +13,24 @@ let PassWordError = document.getElementById(`PassWordError`);
 // UserName Check
 
 function UserCheck() {
-  function FetchData() {
+  if (floating_username.value.length == 0) {
+    UserNameError.innerHTML = `Username Required`;
+  } else if (floating_username.value.length <= 5) {
+    UserNameError.innerHTML = `Username should be more than 5 characters`;
+  } else {
     fetch("http://localhost:3004/Accounts")
       .then((response) => response.json())
       .then((data) => {
         data.forEach((elem) => {
-          if (elem.Username == floating_username.value) {
-            return true;
+          if (elem.Username != floating_username.value) {
+            UserNameError.innerHTML = `Invalid Username`;
           }
         });
       });
   }
-
-  console.log(FetchData() == true);
-
-  if (floating_username.value.length == 0) {
-    UserNameError.innerHTML = `Username Required`;
-  } else if (floating_username.value.length <= 6) {
-    UserNameError.innerHTML = `Username should be more than 6 characters`;
-  } else if (floating_username.value.length > 6) {
-    UserNameError.innerHTML = "";
-  }
 }
 
 function PassWordCheck() {
-  console.log(floating_password.value);
   if (floating_password.value.length == 0) {
     PassWordError.innerHTML = `Password Required`;
   } else {
