@@ -13,6 +13,20 @@ let PassWordError = document.getElementById(`PassWordError`);
 // UserName Check
 
 function UserCheck() {
+  function FetchData() {
+    fetch("http://localhost:3004/Accounts")
+      .then((response) => response.json())
+      .then((data) => {
+        data.forEach((elem) => {
+          if (elem.Usern1ame == floating_username.value) {
+            return true;
+          }
+        });
+      });
+  }
+
+  console.log(FetchData() == true);
+
   if (floating_username.value.length == 0) {
     UserNameError.innerHTML = `Username Required`;
   } else if (floating_username.value.length <= 6) {

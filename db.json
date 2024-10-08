@@ -2,9 +2,9 @@
   "Accounts": [
     {
       "id": 1,
-      "UserName": "json-server",
-      "Email": "typicode",
-      "PassWord": "s"
+      "Username": "ali",
+      "Email": "ali@gmail.com",
+      "Password": "ali1234"
     }
   ]
 }
