@@ -30,6 +30,7 @@ function UserCheck() {
             UserNameError.innerHTML = `Invalid Username`;
             userStatus = false;
           } else {
+            UserNameError.innerHTML = "";
             userStatus = true;
           }
         });

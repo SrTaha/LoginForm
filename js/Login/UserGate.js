@@ -1,5 +1,6 @@
 let floatingUsername = document.getElementById(`floating_username`);
 let floatingPassword = document.getElementById(`floating_password`);
+let DataNotMatch = document.getElementById(`DataNotMatch`);
 
 function GetUser() {
   fetch("http://localhost:3004/Accounts")
@@ -10,7 +11,10 @@ function GetUser() {
           element.Username == floatingUsername.value &&
           element.Password == floatingPassword.value
         ) {
+          DataNotMatch.innerHTML = "";
           alert("Login Was Successful");
+        } else {
+          DataNotMatch.innerHTML = "Incorrect Username or Password";
         }
       });
     });
