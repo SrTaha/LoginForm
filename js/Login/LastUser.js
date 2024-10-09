@@ -1,4 +1,5 @@
 let UsernameBox = document.getElementById(`floating_username`);
+let PasswordBox = document.getElementById(`floating_password`);
 let RememberPassword = document.getElementById(`RememberPass`);
 let SubmitBtn = document.getElementById(`submitBtn`);
 
@@ -10,14 +11,30 @@ function Action() {
     });
 }
 
+Action();
+
 function saveToRemember() {
-  if (RememberPassword.checked == true) {
-    fetch("http://localhost:3004/LastUser/1", {
-      method: "Put",
-      body: JSON.stringify({ Username: UsernameBox.value }),
-      headers: { "content-type": "application/json" },
-    });
-  }
+  fetch("http://localhost:3004/LastUser/1", {
+    method: "Put",
+    body: JSON.stringify({ Username: UsernameBox.value }),
+    headers: { "content-type": "application/json" },
+  });
 }
 
-SubmitBtn.addEventListener("click", saveToRemember);
+function UserExist() {
+  fetch("http://localhost:3004/Accounts")
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((element) => {
+        if (
+          element.Username == UsernameBox.value &&
+          element.Password == PasswordBox.value &&
+          RememberPassword.checked == true
+        ) {
+          saveToRemember();
+        }
+      });
+    });
+}
+
+SubmitBtn.addEventListener("click", UserExist, true);

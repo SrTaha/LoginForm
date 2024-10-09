@@ -3,6 +3,8 @@ let floatingPassword = document.getElementById(`floating_password`);
 let DataNotMatch = document.getElementById(`DataNotMatch`);
 
 function GetUser() {
+  console.log(true);
+
   fetch("http://localhost:3004/Accounts")
     .then((Response) => Response.json())
     .then((Data) => {

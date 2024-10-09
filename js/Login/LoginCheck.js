@@ -48,11 +48,14 @@ function PassWordCheck() {
   }
 }
 
-submitBtn.addEventListener("click", UserCheck);
-submitBtn.addEventListener("click", PassWordCheck);
-submitBtn.addEventListener("click", () => {
-  if (userStatus == true && passwordStatus == true) {
-    console.log(true);
-    GetUser();
-  }
-});
+submitBtn.addEventListener("click", UserCheck, true);
+submitBtn.addEventListener("click", PassWordCheck, true);
+submitBtn.addEventListener(
+  "click",
+  () => {
+    if (userStatus == true && passwordStatus == true) {
+      GetUser();
+    }
+  },
+  true
+);
