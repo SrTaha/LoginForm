@@ -55,6 +55,7 @@ submitBtn.addEventListener(
   () => {
     if (userStatus == true && passwordStatus == true) {
       GetUser();
+      UserExist();
     }
   },
   true

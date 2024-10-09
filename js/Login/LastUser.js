@@ -36,5 +36,3 @@ function UserExist() {
       });
     });
 }
-
-SubmitBtn.addEventListener("click", UserExist, true);
